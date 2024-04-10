@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <windows.h> // Biblioteca com sleep e o beep
 
 /*
@@ -24,14 +25,19 @@ int main(){
     printf("Ola, seja bem-vindo a codificador de codigo morse!! \n");
     printf("Antes de comecar, eu quero te passar algumas dicas: \n\n");
 
-    sleep(3);
+    sleep(2);
 
-    printf("* Nao utilize acentos na hora de escrever a frase que sera codificada! Caso use, as letras acentuadas nao serao codificadas \n");
+    printf("* Nao utilize acentos na hora de escrever a frase que sera codificada!\n");
+
+    sleep(1);
+
+    printf("* Caso use, as letras acentuadas nao serao codificadas \n");
 
     sleep(2);
 
     printf("Digite a frase que deseja codificar: ");
-    scanf("%s", frase);
+    scanf("%s", &frase);
 
+    
     return 0;
 }
