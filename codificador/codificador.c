@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <windows.h> // Biblioteca com sleep e o beep
 
 /*
@@ -11,14 +10,29 @@
     Os traços têm duração mais longa, que duram, em média, três unidades de tempo.
 */
 
+void somPonto(){
+    Beep(1000, 500);
+}
+
+void somBarra(){
+    Beep(1000, 1500);
+}
+
+char espacamento(){
+    return printf("------------------------------------------------------------------------------- \n");
+}
+
 void sleep(int segundos){
     Sleep(segundos * 1000);
 }
 
 int main(){
     // Declaração das variáveis
-    char frase[] = {};
-    int i;
+    char frase[100]; // Variável para armazenar a frase
+    int i = 0; // Variável criada para percorrer o array
+    int realizarOperacao; // VVariável para escolher a operação a ser realizada
+
+    espacamento();
 
     // Início do programa
 
@@ -33,11 +47,201 @@ int main(){
 
     printf("* Caso use, as letras acentuadas nao serao codificadas \n");
 
+    sleep(1);
+
+    printf("* Habilite o som do seu dispositivo, caso queira ouvir o som \n");
+
+    espacamento();
     sleep(2);
 
-    printf("Digite a frase que deseja codificar: ");
-    scanf("%s", &frase);
+    while(TRUE){
+        // Pedindo ao usuário qual operação ele quer realizar
+        printf("Qual operacao voce deseja realizar: \n1. Codificar     2. Decodificar     3. Sair\n");
+        printf("Sua escolha: ");
+        scanf("%d", &realizarOperacao);
 
+        espacamento();
+
+        if (realizarOperacao == 1){
+            // Pedindo que o usuário digite a frase que será codificada
+            printf("Digite uma frase: ");
+            fflush(stdin);
+            fgets(frase, sizeof(frase), stdin);
+
+            sleep(2);
+
+            // Percorrendo letra a letra da variável FRASE
+            while (frase[i] != '\0'){
+                switch (frase[i]){
+                    case 'a':
+                        printf(".- ");
+                        somPonto(); somBarra();
+
+                        sleep(1);
+                        break;
+
+                    case 'b':
+                        printf("-... ");
+                        somBarra(); somPonto(); somPonto(); somPonto();
+
+                        sleep(1);
+                        break;
+
+                    case 'c':
+                        printf("-.-. ");
+                        somBarra(); somPonto(); somBarra(); somPonto();
+
+                        sleep(1);
+                        break;
+
+                    case 'd':
+                        printf("-.. ");
+                        somBarra(); somPonto(); somPonto();
+
+                        sleep(1);
+                        break;
+                        
+                    case 'e':
+                        printf(". ");
+                        somPonto();
+
+                        sleep(1);
+                        break;
+
+                    case 'f':
+                        printf("..-. ");
+                        somPonto(); somPonto(); somBarra(); somPonto();
+                        
+                        sleep(1);
+                        break;
+
+                    case 'g':
+                        printf("--.");
+                        somBarra(); somBarra(); somPonto();
+
+                        sleep(1);
+                        break;
+
+                    case 'h':
+                        printf(".... ");
+                        somPonto(); somPonto(); somPonto(); somPonto();
+                        sleep(1);
+                        break;
+
+                    case 'i':
+                        printf(".. ");
+                        somPonto(); somPonto();
+                        sleep(1);
+                        break;
+
+                    case 'j':
+                        printf(".--- ");
+                        somPonto(); somBarra(); somBarra(); somBarra();
+                        sleep(1);
+                        break;
+
+                    case 'k':
+                        printf("-.- ");
+                        somBarra(); somPonto(); somBarra();
+                        sleep(1);
+                        break;
+
+                    case 'l':
+                        printf(".-.. ");
+                        somPonto(); somBarra(); somPonto(); somPonto();
+                        sleep(1);
+                        break;
+
+                    case 'm':
+                        printf("-- ");
+                        somBarra(); somBarra();
+                        sleep(1);
+                        break;
+
+                    case 'n':
+                        printf("-. ");
+                        somBarra(); somPonto();
+                        sleep(1);
+                        break;
+
+                    case 'o':
+                        printf("--- ");
+                        somBarra(); somBarra(); somBarra();
+                        sleep(1);
+                        break;
+
+                    case 'p':
+                        printf(".--. ");
+                        somPonto(); somBarra(); somBarra(); somPonto();
+                        sleep(1);
+                        break;
+
+                    case 'q':
+                        printf("--.- ");
+                        somBarra(); somBarra(); somPonto(); somBarra();
+                        sleep(1);
+                        break;
+
+                    case 'r':
+                        printf(".-. ");
+                        somPonto(); somBarra(); somPonto();
+                        sleep(1);
+                        break;
+
+                    case 's':
+                        printf("... ");
+                        somPonto(); somPonto(); somPonto();
+                        sleep(1);
+                        break;
+
+                    case 't':
+                        printf("- ");
+                        somBarra();
+                        sleep(1);
+                        break;
+
+                    case 'u':
+                        printf("..- ");
+                        somPonto(); somPonto(); somBarra();
+                        sleep(1);
+                        break;
+
+                    case 'v':
+                        printf("...- ");
+                        somPonto(); somPonto(); somPonto(); somBarra();
+                        sleep(1);
+                        break;
+
+                    case 'w':
+                        printf(".-- ");
+                        somPonto(); somBarra(); somBarra();
+                        sleep(1);
+                        break;
+
+                    case 'x':
+                        printf("-..- ");
+                        somBarra(); somPonto(); somPonto(); somBarra();
+                        sleep(1);
+                        break;
+
+                    case 'y':
+                        printf("-.-- ");
+                        somBarra(); somPonto(); somBarra(); somBarra();
+                        sleep(1);
+                        break;
+
+                    case 'z':
+                        printf("--.. ");
+                        somBarra(); somBarra(); somPonto(); somPonto();
+                        sleep(1);
+                        break;
+                }
+                i++;
+            }
+        }
+
+        break;
+    }
     
     return 0;
 }
