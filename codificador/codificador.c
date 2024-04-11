@@ -66,8 +66,8 @@ int main(){
         if (realizarOperacao == 1){
             // Pedindo que o usuário digite a frase que será codificada
             printf("Digite uma frase: ");
-            fflush(stdin);
-            fgets(frase, sizeof(frase), stdin);
+            fflush(stdin);  // Função para quebrar o input feito pelo scanf
+            fgets(frase, sizeof(frase), stdin); // Input para entrada da frase
 
             sleep(2);
 
