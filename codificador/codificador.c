@@ -30,7 +30,7 @@ int main(){
     // Declaração das variáveis
     char frase[100]; // Variável para armazenar a frase
     int i = 0; // Variável criada para percorrer o array
-    int realizarOperacao; // VVariável para escolher a operação a ser realizada
+    int realizarOperacao; // Variável para escolher a operação a ser realizada
 
     espacamento();
 
@@ -56,6 +56,7 @@ int main(){
 
     while(TRUE){
         // Pedindo ao usuário qual operação ele quer realizar
+        printf("\n\n");
         printf("Qual operacao voce deseja realizar: \n1. Codificar     2. Decodificar     3. Sair\n");
         printf("Sua escolha: ");
         scanf("%d", &realizarOperacao);
@@ -72,6 +73,10 @@ int main(){
 
             // Percorrendo letra a letra da variável FRASE
             while (frase[i] != '\0'){
+                // Transformando todo o array em letra minúscula
+                frase[i] = tolower(frase[i]);
+
+                // Código para cada letra
                 switch (frase[i]){
                     case 'a':
                         printf(".- ");
@@ -238,9 +243,14 @@ int main(){
                 }
                 i++;
             }
+            printf("\n\n");
+            espacamento();
         }
 
-        break;
+        if (realizarOperacao == 3){ // Opção para encerrar o programa
+            printf("Obrigado por utilizar o nosso programa!!\n\n");
+            break;
+        }
     }
     
     return 0;
